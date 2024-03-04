@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Laboratorium 5</title>
+  </head>
+  <body>
+    <!-- ZADANIE 1 -->
+    <script>
+      document.write("Zad 1 <br>");
+      // Generate a random integer between 1 and 10 (inclusive)
+      var num = Math.ceil(Math.random() * 10);
+
+      // Prompt the user to guess a number between 1 and 10 (inclusive)
+      var gnum = prompt("Guess the number between 1 and 10 inclusive");
+
+      // Check if the guessed number matches the generated random number
+      if (gnum == num)
+        // Log a message if the guessed number matches the random number
+        document.write("Matched");
+      // Log a message if the guessed number does not match, and also provide the correct number
+      else document.write("Not matched, the number was " + num);
+    </script>
+
+    <!-- ZADANIE 2 -->
+    <form>
+      <br />
+      Zad 2 <br />
+      1st Number: <input type="text" id="firstNumber" /> <br />
+      2st Number: <input type="text" id="secondNumber" /> <br />
+      <input type="button" onClick="multiplyBy()" value="Multiply" />
+      <input type="button" onClick="divideBy()" value="Divide" />
+    </form>
+    <p>
+      The Result is: <br />
+      <span id="result"> </span>
+    </p>
+    <script>
+      function multiplyBy() {
+        // Get the values of the input fields with the ids "firstNumber" and "secondNumber"
+        var num1 = document.getElementById("firstNumber").value; //bez var tez dziala
+        var num2 = document.getElementById("secondNumber").value; //bez var tez dziala
+
+        // Set the inner HTML of the element with the id "result" to the product of the two numbers
+        document.getElementById("result").innerHTML = num1 * num2;
+      }
+
+      // Define a function to divide two numbers and display the result
+      function divideBy() {
+        // Get the values of the input fields with the ids "firstNumber" and "secondNumber"
+        var num1 = document.getElementById("firstNumber").value; //bez var tez dziala
+        var num2 = document.getElementById("secondNumber").value; //bez var tez dziala
+
+        // Set the inner HTML of the element with the id "result" to the quotient of the two numbers
+        document.getElementById("result").innerHTML = num1 / num2;
+      }
+    </script>
+
+    <!-- ZADANIE 3 -->
+    <script>
+      document.write("Zad 3 <br> ");
+      function cToF(celsius) {
+        var cTemp = celsius;
+        var cToFahr = (cTemp * 9) / 5 + 32;
+        var message = cTemp + "\xB0C is " + cToFahr + " \xB0F.";
+        document.write(message);
+        document.write("<br>");
+      }
+
+      function fToC(fahrenheit) {
+        var fTemp = fahrenheit;
+        var fToCel = ((fTemp - 32) * 5) / 9;
+        var message = fTemp + "\xB0F is " + fToCel + "\xB0C.";
+        document.write(message);
+      }
+      cToF(50);
+      fToC(47);
+    </script>
+
+    <!-- ZADANIE 4 -->
+    <br />
+    <br />
+    <script>
+      document.write("Zad 4");
+      document.write("<br>");
+      function exp(b, n) {
+        var ans = 1;
+        for (var i = 1; i <= n; i++) {
+          ans = b * ans;
+        }
+        return ans;
+      }
+      document.write(exp(2, 5));
+    </script>
+
+    <br />
+    <br />
+    <!-- ZADANIE 5 -->
+    <script>
+      document.write("Zad 5");
+      document.write("<br>");
+      function factorial(x) {
+        if (x === 0) {
+          return 1;
+        }
+        return x * factorial(x - 1);
+      }
+      document.write(factorial(4));
+    </script>
+
+    <br />
+    <br />
+    <!-- ZADANIE 6 -->
+    <script>
+      document.write("Zad 6");
+      document.write("<br>");
+      var arr1 = [-3, 8, 7, 6, 5, -4, 3, 2, 1];
+      document.write("Poczatkowa: " + arr1);
+      var arr2 = [];
+      zmienna = arr1;
+      var min = arr1[0];
+      var pos;
+      var max = arr1[0];
+      for (i = 0; i < arr1.length; i++) {
+        if (max < arr1[i]) max = arr1[i];
+      }
+
+      for (var i = 0; i < arr1.length; i++) {
+        for (var j = 0; j < arr1.length; j++) {
+          if (arr1[j] != "x") {
+            if (min > arr1[j]) {
+              min = arr1[j];
+              pos = j;
+            }
+          }
+        }
+        arr2[i] = min;
+        arr1[pos] = "x";
+        min = max;
+      }
+
+      document.write("<br>");
+      document.write("Posortowana: " + arr2);
+    </script>
+  </body>
+</html>
